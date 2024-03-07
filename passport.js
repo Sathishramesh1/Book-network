@@ -48,4 +48,4 @@ passport.serializeUser((user, done) => {
   });
 
 
-export default passport;
+export { passport};
