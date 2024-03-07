@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import { dbConnection } from './config/dbconnection.js';
+import { dbConnection } from './config/db.js';
 import authRoutes from './Routes/authRoutes.js';
 import passport from './passport.js'; // Import your Passport configuration
 
