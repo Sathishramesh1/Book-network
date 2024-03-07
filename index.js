@@ -29,7 +29,7 @@ app.use(passport.initialize());
 
 
 // Define routes
-app.use('/', authRoutes);
+app.use('/api', authRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
