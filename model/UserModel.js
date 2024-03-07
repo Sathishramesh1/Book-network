@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  googleId: String,
   books: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }]
 });
 
