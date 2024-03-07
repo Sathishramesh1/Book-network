@@ -1,5 +1,5 @@
 import express from 'express';
-import passport from '../passport.js'; // Import your Passport configuration
+import {passport} from '../passport.js'; // Import your Passport configuration
 import dotenv from 'dotenv';
 
 const router = express.Router();
