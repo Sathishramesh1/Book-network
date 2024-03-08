@@ -143,9 +143,9 @@ if (!user.books || user.books.length === 0) {
 }
 
 // Retrieve the user's favorite books and send them in the response
-const favoriteBooks = await Book.find({ _id: { $in: user.books } });
+const favoriteBooks = await Book.find({ _id: { $in: user.books } },'_id title author ISBN description');
 
-return res.status(200).json({ message: favoriteBooks },'_id title author ISBN description');
+return res.status(200).json({ message: favoriteBooks });
 
         
     } catch (error) {
