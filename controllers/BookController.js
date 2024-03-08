@@ -118,3 +118,37 @@ const favbook=async(req,res)=>{
 }
 
 export {favbook}
+
+
+
+//get fav
+
+const getfav=async(req,res)=>{
+    try {
+        const {email}=req.body
+// Find the user by their email
+const user = await User.findOne({ email });
+
+if (!user) {
+    return res.status(404).send("User not found");
+}
+
+// Check if the user has any favorite books
+if (!user.books || user.books.length === 0) {
+    return res.status(404).send("No favorite books found for this user");
+}
+
+// Retrieve the user's favorite books and send them in the response
+const favoriteBooks = await Book.find({ _id: { $in: user.books } });
+
+return res.status(200).json({ message: favoriteBooks });
+
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error);
+        
+    }
+}
+
+export {getfav}
