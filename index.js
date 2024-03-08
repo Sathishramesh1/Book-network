@@ -2,8 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { dbConnection } from './config/db.js';
-import authRoutes from './Routes/authRoutes.js';
-import {passport} from './passport.js'; // Import your Passport configuration
+
 
 //configuration .env files
 dotenv.config();
@@ -25,11 +24,14 @@ dbConnection();
 
 // Initialize Passport middleware
 
-app.use(passport.initialize());
+// app.use(passport.initialize());
 
 
 // Define routes
-app.use('/api', authRoutes);
+// app.use('/api', authRoutes);
+
+
+app.use('/api',)
 
 // Error handling middleware
 app.use((err, req, res, next) => {
