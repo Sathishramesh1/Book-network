@@ -1,5 +1,5 @@
 import express from 'express'
-import {addBook, favbook, getfav, login} from '../controllers/BookController.js'
+import {addBook, favbook, getAllbooks, getfav, login} from '../controllers/BookController.js'
 
 
 const router=express.Router();
@@ -16,6 +16,11 @@ router.route('/login').post(login);
 router.route('/favorites').post(favbook);
 
 
+//get all books
+router.route('/getall').get(getAllbooks)
+
+
+//for users
 router.route('/getfav').get(getfav);
 
 

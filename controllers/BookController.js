@@ -156,3 +156,28 @@ return res.status(200).json({ message: favoriteBooks });
 }
 
 export {getfav}
+
+
+
+//get all books
+
+
+const getAllbooks=async(req,res)=>{
+    try {
+        const book =await Book.find();
+
+        if(!book){
+            return res.status(404).send('no book found');
+        }
+
+
+        return res.status(200).json({message:book});
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error);
+        
+    }
+}
+
+export {getAllbooks}
