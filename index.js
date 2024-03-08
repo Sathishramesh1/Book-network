@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { dbConnection } from './config/db.js';
+import { router } from './Routes/BookRoutes.js';
 
 
 //configuration .env files
@@ -31,7 +32,7 @@ dbConnection();
 // app.use('/api', authRoutes);
 
 
-app.use('/api',)
+app.use('/api',router)
 
 // Error handling middleware
 app.use((err, req, res, next) => {
