@@ -183,7 +183,7 @@ export {getAllbooks}
 const searchUser = async (req, res) => {
     try {
       // Extract the search query from the request
-      const { query } = req.params;
+      const query=req.query.query
   
       // Search for users whose username or email matches the query
       const users = await User.find({
