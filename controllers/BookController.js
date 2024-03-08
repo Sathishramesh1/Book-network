@@ -1,4 +1,4 @@
-import { Book } from "../model/BookModel";
+import { Book } from "../model/BookModel.js";
 
  const addBook=async(req,res)=>{
     const {title, author,ISBN,description}=req.body;
