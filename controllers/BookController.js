@@ -130,7 +130,7 @@ const getfav=async(req,res)=>{
 
 // Find the user by their email
 console.log(email);
-const user = await User.findOne({ email });
+const user = await User.findOne({ email:email });
 console.log(user)
 
 if (!user) {
