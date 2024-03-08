@@ -49,7 +49,7 @@ const login=async(req,res)=>{
 
         // If user doesn't exist, create a new user
         if (!user) {
-            user = await User.create({ email, given_name });
+            user = await User.create({ email:email, name:given_name });
             return res.status(201).json({
                 status: 'success',
                 message: 'New user created',
