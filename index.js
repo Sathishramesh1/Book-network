@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { dbConnection } from './config/db.js';
-import { router } from './Routes/BookRoutes.js';
+import { router } from './route/bookroutes.js';
 
 
 //configuration .env files
