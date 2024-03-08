@@ -13,7 +13,7 @@ try {
 
    const addnewBook= await new Book({ ...req.body }).save();
     
-   res.status(201).json({
+  return  res.status(201).json({
        status:'success',
        message:"Book added successfully"
    })
