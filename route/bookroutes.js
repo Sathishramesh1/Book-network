@@ -1,5 +1,5 @@
 import express from 'express'
-import {addBook, favbook, getAllbooks, getfav, login} from '../controllers/BookController.js'
+import {addBook, favbook, getAllbooks, getfav, login, searchUser} from '../controllers/BookController.js'
 
 
 const router=express.Router();
@@ -17,7 +17,11 @@ router.route('/favorites').post(favbook);
 
 
 //get all books
-router.route('/getall').get(getAllbooks)
+router.route('/getall').get(getAllbooks);
+
+
+//search
+router.route('/search').get(searchUser);
 
 
 //for users

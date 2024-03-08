@@ -164,10 +164,7 @@ export {getfav}
 
 const getAllbooks=async(req,res)=>{
     try {
-        const book =await Book.find();
-
-       
-
+        const book =await Book.find()
 
         return res.status(200).json({message:book});
 
@@ -179,3 +176,46 @@ const getAllbooks=async(req,res)=>{
 }
 
 export {getAllbooks}
+
+
+
+//search user api
+const searchUser = async (req, res) => {
+    try {
+      // Extract the search query from the request
+      const { query } = req.params;
+  
+      // Search for users whose username or email matches the query
+      const users = await User.find({
+        $or: [
+          { username: { $regex: query, $options: 'i' } }, 
+          { email: { $regex: query, $options: 'i' } } // Case-insensitive email search
+        ]
+      }).populate('books'); // Populate the 'books' field to retrieve the associated books
+  
+      // If no users match the query, return a 404 response
+      if (!users || users.length === 0) {
+        return res.status(404).json({ message: 'No users found matching the query.' });
+      }
+  
+      // Prepare the response data with user information and their associated books
+      const userData = users.map(user => ({
+        username: user.username,
+        email: user.email,
+        books: user.books.map(book => ({
+          title: book.title,
+          author: book.author,
+          ISBN: book.ISBN,
+          description: book.description
+        }))
+      }));
+  
+      // Send the response with the user data
+      res.status(200).json({ users: userData });
+    } catch (error) {
+      console.error('Error searching users:', error);
+      res.status(500).json({ message: 'Internal server error.' });
+    }
+  };
+  
+  export { searchUser };
