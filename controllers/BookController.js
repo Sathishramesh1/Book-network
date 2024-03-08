@@ -128,7 +128,9 @@ const getfav=async(req,res)=>{
     try {
         const {email}=req.body
 // Find the user by their email
+console.log(email);
 const user = await User.findOne({ email });
+console.log(user)
 
 if (!user) {
     return res.status(404).send("User not found");
