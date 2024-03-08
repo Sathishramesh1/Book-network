@@ -126,7 +126,8 @@ export {favbook}
 
 const getfav=async(req,res)=>{
     try {
-        const { email } = req.params; //
+        const { email } = req.query;
+
 // Find the user by their email
 console.log(email);
 const user = await User.findOne({ email });
