@@ -166,9 +166,7 @@ const getAllbooks=async(req,res)=>{
     try {
         const book =await Book.find();
 
-        if(!book){
-            return res.status(404).send('no book found');
-        }
+       
 
 
         return res.status(200).json({message:book});
