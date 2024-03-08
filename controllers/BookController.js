@@ -6,9 +6,9 @@ import { Book } from "../model/BookModel.js";
 try {
    const newBook=await Book.find({ISBN:ISBN});
 
-   if(newBook){
+   if(!newBook){
 
-    return res.status(404).send("Already exits");
+    return res.status(409).send("Already exits");
    }
 
    const addnewBook= await new Book({ ...req.body }).save();
