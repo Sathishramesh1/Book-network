@@ -14,10 +14,8 @@ const userSchema = new mongoose.Schema({
     unique: true
   },
   password: {
-    type: String,
-    required: true
+    type: String
   },
-  googleId: String,
   books: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }]
 });
 

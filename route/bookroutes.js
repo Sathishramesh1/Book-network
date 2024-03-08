@@ -1,5 +1,5 @@
 import express from 'express'
-import {addBook} from '../controllers/BookController.js'
+import {addBook, login} from '../controllers/BookController.js'
 
 
 const router=express.Router();
@@ -7,6 +7,9 @@ const router=express.Router();
 
 //route for registering  book
 router.route('/register').post(addBook);
+
+
+router.route('/login').post(login);
 
 
 
